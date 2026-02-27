@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FMX Digital | Desenvolvemos sua presença Digital</title>
+    <meta name="description" content="Nosso compromisso é impulsionar sua marca com soluções criativas e suporte especializado em cada fase do projeto.">
+    
+    <!-- Open Graph Básico -->
+    <meta property="og:title" content="FMX Digital | Desenvolvemos sua presença Digital">
+    <meta property="og:description" content="Nosso compromisso é impulsionar sua marca com soluções criativas e suporte especializado em cada fase do projeto.">
+    <meta property="og:type" content="website">
+
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="scanlines"></div>
+    <div class="cyber-grid"></div>
+    <canvas id="starfield"></canvas>
+    
+    <!-- Floating Social Icons -->
+    <div class="floating-icons">
+        <!-- Instagram -->
+        <svg class="float-icon" style="top: 15%; left: 5%; animation-duration: 25s; animation-delay: 0s;" viewBox="0 0 24 24" fill="none" stroke="var(--primary-color)" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+        <!-- Facebook -->
+        <svg class="float-icon" style="top: 45%; left: 85%; animation-duration: 20s; animation-delay: -5s;" viewBox="0 0 24 24" fill="none" stroke="var(--cyan-color)" stroke-width="1.5"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+        <!-- YouTube -->
+        <svg class="float-icon" style="top: 75%; left: 10%; animation-duration: 22s; animation-delay: -10s;" viewBox="0 0 24 24" fill="none" stroke="var(--secondary-color)" stroke-width="1.5"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33 2.78 2.78 0 0 0 1.94 2c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.33 29 29 0 0 0-.46-5.33z"></path><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon></svg>
+        <!-- TikTok -->
+        <svg class="float-icon" style="top: 25%; left: 80%; animation-duration: 28s; animation-delay: -2s;" viewBox="0 0 24 24" fill="none" stroke="var(--primary-color)" stroke-width="1.5"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"></path></svg>
+        <!-- WhatsApp -->
+        <svg class="float-icon" style="top: 85%; left: 80%; animation-duration: 24s; animation-delay: -7s;" viewBox="0 0 24 24" fill="none" stroke="var(--cyan-color)" stroke-width="1.5"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+    </div>
+
+    <!-- Audio Player -->
+    <audio id="bg-audio" loop>
+        <source src="https://cdn.pixabay.com/download/audio/2022/01/18/audio_d0a13f69d2.mp3?filename=space-ambient-113026.mp3" type="audio/mpeg">
+    </audio>
+    <button id="music-toggle" class="music-toggle-btn" aria-label="Ligar/Desligar Música">
+        <svg id="music-icon-off" viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><line x1="23" y1="9" x2="17" y2="15"></line><line x1="17" y1="9" x2="23" y2="15"></line></svg>
+        <svg id="music-icon-on" style="display:none;" viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path></svg>
+    </button>
+    
+    <header id="header">
+        <a href="#hero" class="logo-link">
+            <img src="/logo.jpg" alt="FMX Digital Logo" class="logo-img">
+        </a>
+        <nav>
+            <ul>
+                <li><a href="#pack">Pack Inicial</a></li>
+                <li><a href="#servicos">Serviços Avulsos</a></li>
+                <li><a href="#gerenciamento">Gerenciamento</a></li>
+                <li><a href="#equipe">Equipe</a></li>
+                <li><a href="#contato">Contato</a></li>
+            </ul>
+        </nav>
+        <a href="https://forms.fmxdigital.com.br/briefing-pack/" class="cta-btn cyber-btn" target="_blank" rel="noopener noreferrer">Iniciar Projeto</a>
+        <button class="menu-toggle" aria-label="Abrir menu">
+            <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none"><path d="M3 12h18M3 6h18M3 18h18"></path></svg>
+        </button>
+    </header>
+
+    <main>
+        <!-- Hero -->
+        <section id="hero" class="hero">
+            <div class="astronaut-animation">
+                <svg class="astronaut-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="var(--primary-color)" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M14.5 9a2.5 2.5 0 0 0-5 0v1a2.5 2.5 0 0 0 5 0v-1Z"/>
+                    <path d="M11 13c-1.93 0-3.5-1.57-3.5-3.5V9a4.5 4.5 0 0 1 9 0v.5c0 1.93-1.57 3.5-3.5 3.5H11Z"/>
+                    <path d="M8 11.5V14a4 4 0 0 0 8 0v-2.5"/>
+                    <path d="M6 14v1.5a6 6 0 0 0 12 0V14"/>
+                    <path d="M4 16v1.5a8 8 0 0 0 16 0V16"/>
+                    <path d="M12 22v-3"/>
+                    <path d="M9 22h6"/>
+                    <path d="M4 12H3a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1h1"/>
+                    <path d="M20 12h1a1 1 0 0 0 1-1V9a1 1 0 0 0-1-1h-1"/>
+                </svg>
+            </div>
+            <div class="hero-content">
+                <h1 class="glitch" data-text="Revele seu sucesso!">Revele seu sucesso!</h1>
+                <p class="cyber-subtitle">Desenvolvemos sua presença Digital com segurança e estratégia.</p>
+                <div class="hero-buttons">
+                    <a href="#pack" class="btn btn-primary cyber-btn">Começar pelo Pack</a>
+                    <a href="#servicos" class="btn btn-secondary cyber-btn">Ver serviços</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Pack Inicial -->
+        <section id="pack" class="section">
+            <div class="container">
+                <h2 class="section-title">
+                    <svg class="section-avatar" viewBox="0 0 24 24" fill="none" stroke="var(--primary-color)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="4" y="8" width="16" height="12" rx="2" ry="2"></rect>
+                        <path d="M9 14h.01M15 14h.01M12 18v-2M8 8V6a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2M2 12h2M20 12h2"></path>
+                    </svg>
+                    Pack de Conteúdo Inicial
+                </h2>
+                <div class="pack-content" id="pack-container">
+                    <!-- Injetado via JS -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Serviços Avulsos (Catálogo Netflix) -->
+        <section id="servicos" class="section" style="position: relative;">
+            <img src="https://cdn3d.iconscout.com/3d/premium/thumb/vr-gaming-5692606-4743376.png" alt="VR Gamer" class="floating-avatar-left" crossorigin="anonymous">
+            <div class="container" style="max-width: 100%; padding-left: 4%; padding-right: 4%;">
+                <h2 class="section-title">
+                    <svg class="section-avatar" viewBox="0 0 24 24" fill="none" stroke="var(--cyan-color)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"></path>
+                        <circle cx="12" cy="12" r="3"></circle>
+                        <path d="M12 5v2M12 17v2M5 12H3M21 12h-2M7.5 7.5l1.5 1.5M16.5 16.5l-1.5-1.5M7.5 16.5l1.5-1.5M16.5 7.5l-1.5 1.5"></path>
+                    </svg>
+                    Serviços Avulsos
+                </h2>
+                <p class="section-subtitle">Catálogo completo para expandir sua estratégia digital.</p>
+                
+                <div class="avulsos-opcao">
+                  <h3>Serviços Avulsos (do seu jeito)</h3>
+                  <p>
+                    Aqui você escolhe como prefere:
+                    <strong>receber o conteúdo pronto e aplicar por conta própria</strong>,
+                    ou contratar a <strong>aplicação/agendamento</strong> com a nossa equipe (opcional).
+                  </p>
+                </div>
+                
+                <div id="catalogo-container">
+                    <!-- Injetado via JS (Trilhos Netflix) -->
+                </div>
+                
+                <div class="text-center mt-4">
+                    <a href="https://forms.fmxdigital.com.br/briefing-pack/" target="_blank" class="btn btn-primary cyber-btn">Montar meu pacote</a>
+                    <p class="micro-note">
+                      Você decide: a gente entrega pronto — e você publica — ou a FMX publica para você.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Gerenciamento -->
+        <section id="gerenciamento" class="section" style="position: relative;">
+            <img src="https://cdn3d.iconscout.com/3d/premium/thumb/cyberpunk-character-6816934-5602758.png" alt="Cyberpunk Character" class="floating-avatar-right" crossorigin="anonymous">
+            <div class="rocket-animation">
+                <svg class="rocket-svg" viewBox="0 0 24 24" fill="none" stroke="var(--cyan-color)" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"></path>
+                    <path d="M12 15l-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"></path>
+                    <path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"></path>
+                    <path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"></path>
+                </svg>
+                <div class="rocket-fire"></div>
+            </div>
+            <div class="container">
+                <h2 class="section-title">
+                    <svg class="section-avatar" viewBox="0 0 24 24" fill="none" stroke="var(--secondary-color)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <polygon points="12 2 2 7 2 17 12 22 22 17 22 7 12 2"></polygon>
+                        <polyline points="2 7 12 12 22 7"></polyline>
+                        <line x1="12" y1="22" x2="12" y2="12"></line>
+                        <circle cx="12" cy="12" r="3" fill="var(--secondary-color)"></circle>
+                    </svg>
+                    Gerenciamento
+                </h2>
+                <p class="section-subtitle">Nós cuidamos do seu digital para você focar no seu negócio.</p>
+                <div class="pricing-grid" id="planos-container">
+                    <!-- Injetado via JS -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Como Funciona -->
+        <section id="jornada" class="section" style="position: relative;">
+            <img src="https://cdn3d.iconscout.com/3d/premium/thumb/gamer-girl-5692602-4743372.png" alt="Gamer Girl" class="floating-avatar-left" crossorigin="anonymous" style="top: 30%;">
+            <div class="container">
+                <h2 class="section-title">Como Funciona</h2>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-icon">1</div>
+                        <div class="timeline-content">
+                            <h3>Contrata Pack Inicial</h3>
+                            <p>O ponto de partida seguro para sua marca.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-icon">2</div>
+                        <div class="timeline-content">
+                            <h3>FMX Produz e Aplica</h3>
+                            <p>Estratégia e execução sob medida.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-icon">3</div>
+                        <div class="timeline-content">
+                            <h3>Aprovação e Confiança</h3>
+                            <p>Você valida os resultados e ganha segurança.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-icon">4</div>
+                        <div class="timeline-content">
+                            <h3>Serviços Avulsos</h3>
+                            <p>Expansão das estratégias conforme a necessidade.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-icon">5</div>
+                        <div class="timeline-content">
+                            <h3>Gerenciamento Pro/Premium</h3>
+                            <p>Assumimos o controle total do seu digital.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Equipe -->
+        <section id="equipe" class="section" style="position: relative;">
+            <img src="https://cdn3d.iconscout.com/3d/premium/thumb/robot-gamer-5692605-4743375.png" alt="Robot Gamer" class="floating-avatar-right" crossorigin="anonymous" style="top: 10%;">
+            <div class="container">
+                <h2 class="section-title">Conheça nosso time</h2>
+                <p class="section-subtitle">Especialistas apaixonados pelo que fazem que elevam sua marca!</p>
+                <div class="team-grid" id="equipe-grid">
+                    <!-- Injetado via JS -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Contato -->
+        <section id="contato" class="section">
+            <div class="container">
+                <h2 class="section-title">Contato</h2>
+                <div class="contact-wrapper">
+                    <form id="contact-form" class="contact-form">
+                        <div class="form-group">
+                            <label for="nome">Nome</label>
+                            <input type="text" id="nome" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">E-mail</label>
+                            <input type="email" id="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="mensagem">Mensagem</label>
+                            <textarea id="mensagem" rows="3" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-full">Enviar Mensagem</button>
+                    </form>
+                    <div class="contact-info">
+                        <h3>Fale Conosco</h3>
+                        <p>Mais de 50.000 empresas confiam na nossa agência.</p>
+                        <div class="contact-links">
+                            <a href="https://wa.me/5581991426388" class="btn btn-secondary cyber-btn" target="_blank">WhatsApp</a>
+                            <a href="#" class="btn btn-secondary cyber-btn" target="_blank">Instagram (Preencher)</a>
+                        </div>
+                        <div class="mt-4 text-sm text-gray">
+                            <p>Email: (Preencher do site base)</p>
+                            <p>Tel: (81) 99142-6388</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container footer-content">
+            <img src="/logo.jpg" alt="FMX Digital Logo" class="footer-logo-img">
+            <div class="footer-links">
+                <a href="#hero">Início</a>
+                <a href="#pack-inicial">Serviços</a>
+                <a href="#equipe">Nossa empresa</a>
+                <a href="#">Política de Privacidade</a>
+            </div>
+            <div class="footer-copy">
+                &copy; 2024 FMX Projetos Digitais | Todos os direitos reservados.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal Equipe -->
+    <div id="team-modal" class="modal" aria-hidden="true" role="dialog" aria-modal="true">
+        <div class="modal-content">
+            <button class="close-modal" aria-label="Fechar modal">&times;</button>
+            <div id="modal-body"></div>
+        </div>
+    </div>
+
+    <!-- WhatsApp Bot -->
+    <div class="whatsapp-bot-container">
+        <button id="whatsapp-toggle" class="whatsapp-toggle-btn" aria-label="Abrir chat do WhatsApp">
+            <svg viewBox="0 0 24 24" width="32" height="32" fill="currentColor">
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/>
+            </svg>
+        </button>
+        <div id="whatsapp-chat" class="whatsapp-chat hidden">
+            <div class="whatsapp-header">
+                <div class="whatsapp-header-info">
+                    <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
+                        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/>
+                    </svg>
+                    <div>
+                        <h4>Atendimento FMX</h4>
+                        <p>Online agora</p>
+                    </div>
+                </div>
+                <button id="close-whatsapp" aria-label="Fechar chat">&times;</button>
+            </div>
+            <div id="whatsapp-messages" class="whatsapp-messages">
+                <div class="message bot-message">
+                    Olá! Sou o assistente virtual da FMX Digital. Como posso te ajudar hoje?
+                </div>
+                <div class="chat-options">
+                    <button class="chat-option" data-question="servicos">Quais serviços vocês oferecem?</button>
+                    <button class="chat-option" data-question="precos">Qual o valor dos serviços?</button>
+                    <button class="chat-option" data-question="pack">Como funciona o Pack Inicial?</button>
+                    <button class="chat-option" data-question="humano">Falar com um humano</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
